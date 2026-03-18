@@ -1,0 +1,34 @@
+{
+    "version": 2,
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.6.0"
+        }
+    },
+    "routes": [
+        {
+            "src": "/(css|js|images|fonts|img|videos|icons)/(.*)",
+            "headers": {
+                "cache-control": "public, max-age=31536000, immutable"
+            }
+        },
+        {
+            "src": "/build/(.*)",
+            "headers": {
+                "cache-control": "public, max-age=31536000, immutable"
+            },
+            "continue": true
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/api/index.php"
+        }
+    ],
+    "env": {
+        "APP_ENV": "production",
+        "APP_DEBUG": "true",
+        "APP_KEY": "base64:xQ8vZ9mK3nL2pR7tY1wX5bC8dF6gH0jI4kM9nO3qS2u=",
+        "APP_URL": "https://welcare-k6zl.vercel.app"
+    },
+    "outputDirectory": "public"
+}

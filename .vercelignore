@@ -1,0 +1,17 @@
+/.vercel
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.*
+!.env.example
+.npm
+.DS_Store
+Thumbs.db
+h5bp
+local-certs
+ide.json
+.phpactor.json
+*.log
