@@ -18,9 +18,22 @@
                     <x-nav-link :href="route('patients.index')" :active="request()->routeIs('patients.*')">
                         {{ __('Patients') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('services.index')" :active="request()->routeIs('services.*')">
-                        {{ __('Services') }}
+
+                    @if(Auth::user()->isAdmin())
+                        <x-nav-link :href="route('services.index')" :active="request()->routeIs('services.*')">
+                            {{ __('Services') }}
+                        </x-nav-link>
+                    @endif
+
+                    <x-nav-link :href="route('expenses.index')" :active="request()->routeIs('expenses.*')">
+                        {{ __('Expenses') }}
                     </x-nav-link>
+
+                    @if(Auth::user()->isAdmin())
+                        <x-nav-link :href="route('staff.index')" :active="request()->routeIs('staff.*')">
+                            {{ __('Staff') }}
+                        </x-nav-link>
+                    @endif
                     <x-nav-link :href="route('billing.index')" :active="request()->routeIs('billing.*')">
                         {{ __('Billing') }}
                     </x-nav-link>
@@ -78,9 +91,22 @@
             <x-responsive-nav-link :href="route('patients.index')" :active="request()->routeIs('patients.*')">
                 {{ __('Patients') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('services.index')" :active="request()->routeIs('services.*')">
-                {{ __('Services') }}
+
+            @if(Auth::user()->isAdmin())
+                <x-responsive-nav-link :href="route('services.index')" :active="request()->routeIs('services.*')">
+                    {{ __('Services') }}
+                </x-responsive-nav-link>
+            @endif
+
+            <x-responsive-nav-link :href="route('expenses.index')" :active="request()->routeIs('expenses.*')">
+                {{ __('Expenses') }}
             </x-responsive-nav-link>
+
+            @if(Auth::user()->isAdmin())
+                <x-responsive-nav-link :href="route('staff.index')" :active="request()->routeIs('staff.*')">
+                    {{ __('Staff') }}
+                </x-responsive-nav-link>
+            @endif
             <x-responsive-nav-link :href="route('billing.index')" :active="request()->routeIs('billing.*')">
                 {{ __('Billing') }}
             </x-responsive-nav-link>

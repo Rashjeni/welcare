@@ -27,8 +27,13 @@ Route::middleware(['auth'])->group(function () {
     
     Route::resource('patients', PatientController::class);
     
-    Route::resource('services', ServiceController::class);
-    Route::post('/services/{service}/toggle-status', [ServiceController::class, 'toggleStatus'])->name('services.toggle-status');
+    Route::middleware(['admin'])->group(function () {
+        Route::resource('services', ServiceController::class);
+        Route::post('/services/{service}/toggle-status', [ServiceController::class, 'toggleStatus'])->name('services.toggle-status');
+        Route::resource('staff', \App\Http\Controllers\StaffController::class);
+    });
+    
+    Route::resource('expenses', \App\Http\Controllers\ExpenseController::class);
     
     Route::get('/billing', [BillingController::class, 'index'])->name('billing.index');
     Route::get('/billing/create', [BillingController::class, 'create'])->name('billing.create');
