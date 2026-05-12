@@ -75,10 +75,12 @@
                             <span class="text-gray-500">Subtotal:</span>
                             <span class="text-gray-800 font-medium">LKR {{ number_format($bill->subtotal, 2) }}</span>
                         </div>
-                        <div class="flex justify-between text-sm">
-                            <span class="text-gray-500">Discount:</span>
-                            <span class="text-red-500 font-medium">- LKR {{ number_format($bill->discount, 2) }}</span>
-                        </div>
+                        @if($bill->discount > 0)
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-500">Discount:</span>
+                                <span class="text-red-500 font-medium">- LKR {{ number_format($bill->discount, 2) }}</span>
+                            </div>
+                        @endif
                         <div class="flex justify-between border-t border-gray-200 pt-2">
                             <span class="text-lg font-bold text-gray-800 uppercase">Total:</span>
                             <span class="text-xl font-black text-blue-600 font-bold">LKR {{ number_format($bill->total, 2) }}</span>

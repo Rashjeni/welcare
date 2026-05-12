@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 no-print">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -36,6 +36,9 @@
                     @endif
                     <x-nav-link :href="route('billing.index')" :active="request()->routeIs('billing.*')">
                         {{ __('Billing') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('reports.index')" :active="request()->routeIs('reports.*')">
+                        {{ __('Reports') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -109,6 +112,9 @@
             @endif
             <x-responsive-nav-link :href="route('billing.index')" :active="request()->routeIs('billing.*')">
                 {{ __('Billing') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('reports.index')" :active="request()->routeIs('reports.*')">
+                {{ __('Reports') }}
             </x-responsive-nav-link>
         </div>
 

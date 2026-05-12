@@ -41,6 +41,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/billing/{bill}', [BillingController::class, 'show'])->name('billing.show');
     Route::post('/billing/{bill}/mark-as-paid', [BillingController::class, 'markAsPaid'])->name('billing.mark-as-paid');
     Route::post('/billing/{bill}/mark-as-unpaid', [BillingController::class, 'markAsUnpaid'])->name('billing.mark-as-unpaid');
+
+    Route::get('/reports', [\App\Http\Controllers\ReportController::class, 'index'])->name('reports.index');
 });
 
 require __DIR__.'/auth.php';
